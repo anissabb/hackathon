@@ -28,6 +28,7 @@ function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
   isMatch ? disableCards() : unflipCards();
+  console.log("victory");
 }
 
 function disableCards() {
@@ -45,7 +46,7 @@ function unflipCards() {
     secondCard.classList.remove('flip');
 
     resetBoard();
-  }, 1500);
+  }, 1000);
 }
 
 function resetBoard() {
@@ -55,9 +56,12 @@ function resetBoard() {
 
 (function shuffle() {
   cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 12);
+    let randomPos = Math.floor(Math.random() * 6);
     card.style.order = randomPos;
   });
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+
+//function victory(){}
